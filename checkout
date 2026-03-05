@@ -1,0 +1,593 @@
+<style>
+#top1526-pro, #top1526-pro * { box-sizing: border-box; }
+
+#top1526-pro {
+  --bg-dark: #0f1115;
+  --bg-card: rgba(30, 33, 40, .6);
+  --bg-card-hover: rgba(40, 44, 53, .8);
+  --text-main: #f0f2f5;
+  --text-muted: #a0a8b5;
+  --accent-gold: #d4af37;
+  --accent-gold-hover: #e5c158;
+  --success-green: #25D366;
+  --success-hover: #128C7E;
+  --pink-light: #FF85B3;
+  --pink-dark: #E03C7A;
+  --error-red: #ff4b4b;
+  --error-bg: rgba(255, 75, 75, .1);
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --blur-strength: 16px;
+  --border-subtle: 1px solid rgba(255, 255, 255, .08);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, .4);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, .2);
+  --border-radius: 16px;
+  --transition: all .3s cubic-bezier(.25, .8, .25, 1);
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page wrapper */
+#top1526-pro .page {
+  position: relative;
+  background: var(--bg-dark);
+  padding: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Orbs */
+#top1526-pro .background-elements {
+  position: absolute; inset: 0;
+  z-index: 0; overflow: hidden; pointer-events: none;
+}
+#top1526-pro .glow {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .15;
+}
+#top1526-pro .glow-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--accent-gold); }
+#top1526-pro .glow-2 { bottom: 20%; right: -5%; width: 400px; height: 400px; background: #4a5b82; }
+#top1526-pro .glow-3 { top: 40%; left: 40%; width: 600px; height: 600px; background: rgba(255, 133, 179, .3); opacity: .08; }
+
+/* Container */
+#top1526-pro .container {
+  position: relative; z-index: 1;
+  max-width: 860px; margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex; flex-direction: column; gap: 2rem;
+}
+
+/* Typography */
+#top1526-pro h1, #top1526-pro h2, #top1526-pro h3, #top1526-pro h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+#top1526-pro p { margin: 0; }
+#top1526-pro .text-accent { color: var(--accent-gold); }
+#top1526-pro .text-muted { color: var(--text-muted); }
+#top1526-pro .text-pink { color: var(--pink-light); }
+#top1526-pro .text-center { text-align: center; }
+
+/* Cards */
+#top1526-pro .glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--blur-strength));
+  -webkit-backdrop-filter: blur(var(--blur-strength));
+  border: var(--border-subtle);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+#top1526-pro .glass-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-glow);
+}
+#top1526-pro .glass-card.minimal { padding: 1.5rem; }
+
+/* Buttons */
+#top1526-pro .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: .75rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  user-select: none;
+}
+#top1526-pro .btn:active { transform: scale(.98); }
+
+#top1526-pro .btn-primary {
+  background: linear-gradient(135deg, var(--accent-gold), #b8912b);
+  color: #111;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, .3);
+}
+#top1526-pro .btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(212, 175, 55, .5);
+  transform: translateY(-2px);
+}
+#top1526-pro .btn-outline {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--accent-gold);
+}
+#top1526-pro .btn-outline:hover {
+  background: rgba(212, 175, 55, .1);
+  color: var(--accent-gold);
+}
+#top1526-pro .btn-success {
+  background: var(--success-green);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, .3);
+}
+#top1526-pro .btn-success:hover {
+  background: var(--success-hover);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, .5);
+  transform: translateY(-2px);
+}
+#top1526-pro .btn-pink {
+  background: linear-gradient(135deg, var(--pink-dark), var(--pink-light));
+  color: #fff;
+}
+#top1526-pro .btn-pink:hover {
+  box-shadow: 0 6px 20px rgba(224, 60, 122, .4);
+  transform: translateY(-2px);
+}
+#top1526-pro .block { display: block; width: 100%; }
+
+/* Disabled buttons */
+#top1526-pro .btn.is-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .55;
+  filter: grayscale(.25) saturate(.85);
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Hero */
+#top1526-pro .section-hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+#top1526-pro .section-hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+#top1526-pro .badge {
+  display: inline-block;
+  background: rgba(212, 175, 55, .1);
+  color: var(--accent-gold);
+  padding: .5rem 1rem;
+  border-radius: 20px;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(212, 175, 55, .3);
+}
+#top1526-pro .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+}
+#top1526-pro .hero-title .highlight {
+  background: linear-gradient(to right, var(--accent-gold), #eee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#top1526-pro .hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  margin-bottom: 2rem;
+}
+#top1526-pro .hero-content {
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, .2);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+/* Grid */
+#top1526-pro .info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  #top1526-pro .info-grid { grid-template-columns: 1fr; }
+  #top1526-pro .hero-title { font-size: 2rem; }
+}
+
+/* Headers */
+#top1526-pro .card-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+#top1526-pro .card-header.align-center { justify-content: center; }
+#top1526-pro .card-header h2 { font-size: 1.25rem; letter-spacing: .5px; }
+#top1526-pro .icon { font-size: 1.5rem; color: var(--accent-gold); }
+
+/* Details */
+#top1526-pro .details-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: .75rem;
+  margin: 0; padding: 0;
+}
+#top1526-pro .details-list li {
+  font-size: .95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+#top1526-pro .label {
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 80px;
+}
+
+/* Checklist */
+#top1526-pro .checklist {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 1rem;
+  margin: 0; padding: 0;
+}
+#top1526-pro .checklist li {
+  background: rgba(0, 0, 0, .2);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: .95rem;
+  display: flex; align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+#top1526-pro .checklist li:hover {
+  background: rgba(255, 255, 255, .05);
+  transform: translateX(5px);
+}
+#top1526-pro .checklist li i {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+/* Alerts */
+#top1526-pro .alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, .1);
+  border-left: 4px solid var(--accent-gold);
+  font-size: .95rem;
+}
+#top1526-pro .alert i {
+  color: var(--accent-gold);
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+#top1526-pro .error-box {
+  background: var(--error-bg);
+  border-left-color: var(--error-red);
+}
+#top1526-pro .error-box i { color: var(--error-red); }
+
+/* Sections */
+#top1526-pro .section-full {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--blur-strength));
+  border: var(--border-subtle);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 2rem;
+}
+#top1526-pro .highlight-card {
+  background: linear-gradient(145deg, rgba(37, 211, 102, .1), rgba(30, 33, 40, .6));
+  border: 1px solid rgba(37, 211, 102, .3);
+}
+#top1526-pro .secondary-card {
+  background: linear-gradient(145deg, rgba(224, 60, 122, .1), rgba(30, 33, 40, .6));
+  border: 1px solid rgba(224, 60, 122, .3);
+}
+
+/* WhatsApp layout */
+#top1526-pro .whatsapp-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media (max-width: 600px) {
+  #top1526-pro .whatsapp-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+#top1526-pro .whatsapp-icon {
+  font-size: 3rem;
+  color: var(--success-green);
+  background: rgba(37, 211, 102, .15);
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#top1526-pro .whatsapp-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+/* Policies */
+#top1526-pro .policy-list {
+  margin: 0 0 0 1.5rem;
+  color: var(--text-muted);
+  padding: 0;
+}
+#top1526-pro .policy-list li { margin-bottom: .5rem; }
+#top1526-pro .policy-list strong { color: var(--text-main); }
+
+/* Contact */
+#top1526-pro .contact-box {
+  background: rgba(0, 0, 0, .3);
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: .95rem;
+}
+#top1526-pro .contact-box a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+/* Footer */
+#top1526-pro .footer {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+}
+#top1526-pro .quote-box {
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 1.5rem;
+}
+#top1526-pro .quote-box::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  color: rgba(255, 255, 255, .05);
+  font-family: serif;
+  line-height: 1;
+}
+#top1526-pro blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0 .5rem 0;
+  position: relative;
+  z-index: 1;
+}
+#top1526-pro cite {
+  font-size: .9rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+#top1526-pro .final-words {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+#top1526-pro .brand {
+  font-family: var(--font-heading);
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: .85rem;
+  margin-top: .5rem;
+}
+
+/* Utils */
+#top1526-pro .mt-2 { margin-top: .5rem; }
+#top1526-pro .mt-3 { margin-top: 1rem; }
+#top1526-pro .mt-4 { margin-top: 1.5rem; }
+#top1526-pro .mb-4 { margin-bottom: 1.5rem; }
+
+/* Animations */
+@keyframes top1526FadeIn { from{opacity:0} to{opacity:1} }
+@keyframes top1526SlideUp { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+
+#top1526-pro .animate-fade-in { animation: top1526FadeIn 1s cubic-bezier(.25, .8, .25, 1) forwards; }
+#top1526-pro .animate-slide-up { opacity: 0; animation: top1526SlideUp .8s cubic-bezier(.25, .8, .25, 1) forwards; }
+
+/* Link focus */
+#top1526-pro a { color: inherit; }
+#top1526-pro a:focus { outline: 2px solid rgba(212, 175, 55, .4); outline-offset: 3px; }
+</style>
+
+<div id="top1526-pro">
+  <div class="page">
+    <div class="background-elements" aria-hidden="true">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+    </div>
+    <div class="container">
+      
+      <header class="section-hero glass-card animate-fade-in">
+        <div class="badge">Registration Confirmed!</div>
+        <h1 class="hero-title">WELCOME TO <span class="highlight">TOP 1526</span></h1>
+        <p class="hero-subtitle">It’s a privilege to have you with us.</p>
+        <div class="hero-content">
+          <p>To have a truly transformative experience, follow these instructions carefully.</p>
+          <p class="mt-2"><strong>Your success starts today — with clarity and action!</strong></p>
+        </div>
+      </header>
+
+      <div class="info-grid">
+        <section class="info-card glass-card animate-slide-up" style="animation-delay: 0.1s;">
+          <div class="card-header">
+            <i class="fa-regular fa-calendar-check icon"></i>
+            <h2>Event Information</h2>
+          </div>
+          <ul class="details-list">
+            <li><span class="label">TOP:</span> 1526</li>
+            <li><span class="label">Dates:</span> Mar 26 – Mar 29, 2026</li>
+            <li><span class="label">Check-in:</span> Mar 26, 2026 at 3:00 PM</li>
+            <li><span class="label">Check-out:</span> Mar 29, 2026 at 4:00 PM</li>
+            <li><span class="label">Location:</span> Videira Atlanta Church, Marietta, GA 📍</li>
+          </ul>
+          <a class="btn btn-outline mt-4 is-disabled" href="#" aria-disabled="true" tabindex="-1">
+            <i class="fa-brands fa-waze"></i> Coming soon
+          </a>
+        </section>
+
+        <section class="info-card glass-card animate-slide-up" style="animation-delay: 0.2s;">
+          <div class="card-header">
+            <i class="fa-regular fa-id-card icon"></i>
+            <h2>On Check-in Day</h2>
+          </div>
+          <ul class="checklist alt-checklist">
+            <li><i class="fa-solid fa-file-signature text-accent"></i> Signed waiver (liability form)</li>
+            <li><i class="fa-solid fa-money-bill-wave text-accent"></i> $20 cash</li>
+            <li><i class="fa-solid fa-id-badge text-accent"></i> Copy of an official ID document</li>
+            <li><i class="fa-solid fa-qrcode text-accent"></i> Printed registration form with QR Code</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="section-full glass-card animate-slide-up" style="animation-delay: 0.3s;">
+        <div class="card-header align-center">
+          <i class="fa-solid fa-backpack icon"></i>
+          <h2>What to bring</h2>
+        </div>
+        <div class="alert box">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <div>
+            <strong>Attention:</strong> Double-check the required items.<br>
+            <small>Images in the list (when applicable) are ILLUSTRATIVE.</small>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <p>Everything you need is on the official list.</p>
+          <a class="btn btn-primary mt-2 is-disabled" href="#" aria-disabled="true" tabindex="-1">
+            <i class="fa-solid fa-download"></i> Coming soon
+          </a>
+        </div>
+      </section>
+
+      <section class="section-full highlight-card animate-slide-up" style="animation-delay: 0.4s;">
+        <div class="whatsapp-content">
+          <div class="whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="whatsapp-text">
+            <h2>Official Group (WhatsApp)</h2>
+            <p>Participation is mandatory to receive announcements.</p>
+          </div>
+          <a class="btn btn-success" href="https://chat.whatsapp.com/GdW3asiAa5O2sWBRGTumSa?mode=gi_t" target="_blank" rel="noopener">Join the Group</a>
+        </div>
+      </section>
+
+      <section class="section-full secondary-card animate-slide-up" style="animation-delay: 0.5s;">
+        <div class="card-header">
+          <i class="fa-solid fa-heart icon text-pink"></i>
+          <h2>Wives Group</h2>
+        </div>
+        <p>Share the link with your wife, fiancée, or mother.</p>
+        <div class="alert box error-box mt-3 mb-4">
+          <i class="fa-solid fa-ban"></i>
+          <div><strong>Notice:</strong> Women only (men cannot join).</div>
+        </div>
+        <a class="btn btn-pink block text-center" href="https://chat.whatsapp.com/J707lrv3gSPLNpQXD0nqYD?mode=gi_t" target="_blank" rel="noopener">Women’s Group</a>
+      </section>
+
+      <section class="info-card glass-card minimal animate-slide-up" style="animation-delay: 0.6s;">
+        <div class="card-header">
+          <i class="fa-solid fa-circle-xmark icon"></i>
+          <h2>Cancellations & Transfers</h2>
+        </div>
+        <ul class="policy-list mt-3">
+          <li><strong>Health reasons:</strong> Accepted with a medical note up to 20 days before the event.</li>
+          <li><strong>Transfer/change edition:</strong> Only if 30+ days remain.</li>
+          <li><strong>Less than 30 days:</strong> No changes or refunds.</li>
+        </ul>
+        <div class="contact-box mt-4">
+          <p><i class="fa-regular fa-envelope"></i> All requests must be handled by email:<br>
+          <a class="text-accent" href="mailto:legendariosatl@gmail.com">legendariosatl@gmail.com</a></p>
+          <p class="mt-2"><i class="fa-brands fa-instagram"></i> Next editions: 
+          <a class="text-accent" href="https://instagram.com/legendariosatl" target="_blank" rel="noopener">@legendariosatl</a></p>
+        </div>
+      </section>
+
+      <footer class="footer animate-fade-in" style="animation-delay: 0.8s;">
+        <div class="quote-box">
+          <blockquote>"Greater love has no one than this: to lay down one’s life for one’s friends."</blockquote>
+          <cite>— John 15:13</cite>
+        </div>
+        <div class="quote-box">
+          <blockquote>"But we have this treasure in jars of clay to show that this all-surpassing power is from God and not from us."</blockquote>
+          <cite>— 2 Corinthians 4:7</cite>
+        </div>
+        <div class="final-words">
+          <p><i class="fa-solid fa-sparkles text-accent"></i> We are fragile vessels, but Jesus will be glorified through us.</p>
+          <h3 class="mt-4">See you soon!</h3>
+          <p class="brand">Eagle Path Team</p>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const root = document.getElementById('top1526-pro');
+  if(!root) return;
+
+  function scrollReveal(){
+    const targets = root.querySelectorAll('.animate-slide-up, .animate-fade-in');
+    if(!('IntersectionObserver' in window)){
+      targets.forEach(el => { el.style.opacity = 1; });
+      return;
+    }
+    targets.forEach(el => { el.style.animationPlayState = 'paused'; });
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.animationPlayState = 'running';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    targets.forEach(el => observer.observe(el));
+  }
+
+  scrollReveal();
+})();
+</script>
